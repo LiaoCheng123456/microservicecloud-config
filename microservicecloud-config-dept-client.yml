@@ -1,7 +1,8 @@
 spring:
   profiles:
     active:
-      - dev
+      dev:
+        - dev
 ---
 # tomcat 启动端口配置
 server:
