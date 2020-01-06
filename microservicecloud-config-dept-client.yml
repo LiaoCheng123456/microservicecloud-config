@@ -1,0 +1,73 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+# tomcat 启动端口配置
+server:
+  port: 8001
+
+# mybatis 配置
+mybatis:
+#  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.rh.springcloud.entities
+  mapper-locations:
+    - classpath:mapper/**/*.xml
+
+# Spring 配置
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/cloudDB01?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root
+
+# Eureka 客户端配置
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:7001/eureka/ # 访问的服务器地址
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7004.com:7004/eureka/#访问的服务器地址
+#      defaultZone: http://106.54.213.181:7004/eureka/
+  instance:
+    instance-id: microservicecloud-dept8001 # 自定义名称
+    prefer-ip-address: true # 是否显示ip地址
+
+---
+# tomcat 启动端口配置
+server:
+  port: 8001
+
+# mybatis 配置
+mybatis:
+#  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.rh.springcloud.entities
+  mapper-locations:
+    - classpath:mapper/**/*.xml
+
+# Spring 配置
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/cloudDB01?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root
+
+# Eureka 客户端配置
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:7001/eureka/ # 访问的服务器地址
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7004.com:7004/eureka/#访问的服务器地址
+#      defaultZone: http://106.54.213.181:7004/eureka/
+  instance:
+    instance-id: microservicecloud-dept8001 # 自定义名称
+    prefer-ip-address: true # 是否显示ip地址
