@@ -6,7 +6,7 @@ spring:
 
 ---
 server:
-  prot: 7001
+  port: 7001
 
 spring:
   profiles: dev
@@ -24,7 +24,7 @@ eureka:
 
 ---
 server:
-  prot: 7001
+  port: 7001
 
 spring:
   profiles: test
